@@ -1,61 +1,78 @@
-**Project Proposal: BioFlow - A Lab Automation and Analysis Suite**
+Project Proposal: BioFlow - A Lab Automation and Analysis Suite
 
-**Concept and Objectives**
+Concept and Objectives
 
-The goal of this project is to automate the experimental loop within a cancer biology laboratory setting. 
+The goal of this project is to automate redundant experimental data analysis and processing within a cancer biology laboratory setting. 
 Currently, much of the data management (including aliquot calculations, 96-well plate layout design, and 
-post-experimental data analysis) is performed manually in Excel. This manual process is prone to human error 
+post-experimental data analysis) is performed manually in Excel or by hand. This manual process is prone to human error 
 and lacks the structural integrity required for complex experiments involving multiple primers and antibodies.
 
-**BioFlow** will be a Haskell-based utility designed to model the physical constraints of the laboratory. 
+BioFlow will be a Haskell-based utility designed to model the physical constraints of the laboratory. 
 By using ADTs to represent biological entities (like mRNA samples, proteins, and primers) and spatial structures 
 (like 96-well plates), the system will programmatically prevent errors such as well-overflow or reagent depletion 
 before the wet bench work begins.
 
----
 
-**Project Milestones**
+Project Milestones
 
-**Easy: The Aliquot Kernel**
+Easy: The Aliquot Kernel
 
-* Implement a command-line tool to perform mass-aliquot calculations(C1V1 = C2V2).
-* Support batch processing where a user can input a list of target concentrations 
+- Implement a command-line tool to perform mass-aliquot calculations (C1V1 = C2V2).
+- Support batch processing where a user can input a list of target concentrations 
 and receive a calculated list of required stock, water, qScript volumes, and much more.
 
-**Medium: Spatial Plate Layout Engine**
+Medium: Spatial Plate Layout Engine
 
-* Define a recursive ADT to represent a plate as a collection of wells, each containing a list of reagents.
-* Implement logic to validate that an experiment fits within the physical dimensions of a standard plate 
+- Define a recursive ADT to represent a plate as a collection of wells, each containing a list of reagents.
+- Implement logic to validate that an experiment fits within the physical dimensions of a standard plate 
 (ex: 8x12 for a 96-well plate).
-* Generate a visual text-based map of the plate layout to guide manual pipetting.
+- Generate a visual text-based map of the plate layout to guide manual pipetting.
+I'm not sure how necessary this implmentation is and I find this task being the least pressing when it 
+comes to automating my experimental calculations and data management. Overall, this may not be implemented 
+depending how work progresses and if it means advancing the other aspects of my project. 
 
-**Challenge: The Post-Processing Pipeline**
+Challenge: The Post-Processing Pipeline
 
-* Utilize parser combinators to read and validate machine-generated Excel/CSV result files.
-* Implement a monadic error context (using Either) to flag invalid experimental results, 
+- Utilize parser combinators (can either use existing libraries or write my own library from scatch using monads and
+the Alternative type class) to read and validate machine-generated Excel/CSV result files.
+- Implement a monadic error context (using Either) to flag invalid experimental results, 
 such as CT values that fall outside a valid range or undefined RT values.
-* Automate the generation of bar plots (Treatment vs. RQ value) using a Haskell plotting library.
+- Automate the generation of bar plots (Treatment vs. RQ value) using a Haskell plotting library.
 
----
 
-**Additional Topics and Resources**
+Additional Topics and Resources
 
 To achieve the challenge goals, I will need to explore some advanced Haskell topics beyond the current curriculum:
 
-* Parser Combinators (Cassava/Megaparsec): I will need this to handle the messy formatting of 
-machine-exported Excel/CSV files. I plan to learn this via the real world haskell documentation and online tutorials.
-* Graphic Libraries (Chart): Generating the RQ bar plots will require learning the Chart or Gloss libraries.
-* Lenses: To efficiently update specific wells within a complex nested plate structure, I may explore the 
-Lens library to avoid deep record-syntax nesting.
+- Parser Combinators (potentially from libraries like Cassava/Megaparsec): 
+I will need this to handle the messy formatting of machine-exported Excel/CSV files. 
+I plan to learn this via the real world haskell documentation and online tutorials.
 
-I assume that I'll need some help when it comes to learning and using parser combinators 
-to ensure the error handling is robust enough for real lab data.
+- Graphic Libraries (using the library Chart): 
+Generating the RQ bar plots will require learning the Chart or Gloss libraries.
 
----
+- Lenses: 
+To efficiently update specific wells within a complex nested plate structure, 
+I may explore the Lens library to avoid deep record-syntax nesting.
 
-**Inspiration**
+I assume that I'll need some help when it comes to learning and using parser 
+combinators to ensure the error handling is robust enough for real lab data.
+
+
+Overall plan
+
+So I listed out what I want to do and what tools I think would be best to implement it.
+A prevalent decision I think I would run into as I work on this would be to use built-in
+haskell libraries or make my own libraries from scratch. I haven't started out on this 
+project yet so I don't know how much work it entails, but I am looking for a bit of 
+guidance to see which path I should take or if I should make my own libraries for some
+tasks such as parser combinators while use libraries for other tasks like making bar 
+plots in order to meet the condition of this assignment being as rigourous as 
+1-2 FP assignments. 
+
+
+Inspiration
 
 This project is inspired by the daily workflow of a cancer biology lab, aiming to replace brittle 
 Excel spreadsheets with the type-safety and mathematical rigor of functional programming.
 
----
