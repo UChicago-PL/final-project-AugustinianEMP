@@ -81,3 +81,36 @@ processLine rawLine =
             
         -- if all else fails
         [] -> Left $ "Could not parse line: " ++ take 20 line ++ "..."
+
+
+-- Define a list of primers to exclude from the final plot
+controlGenes :: [String]
+controlGenes = ["B2M"]
+
+-- Completed Pipeline
+parseLabExport :: String -> ExceptT LabError IO [LabRow]
+parseLabExport rawCSV = do
+    let allLines = lines rawCSV
+    -- Drops beginning metadata 
+    let dataLines = drop 35 allLines 
+    
+    -- monadic error check: is there still data after passing metadata?
+    when (null dataLines) $ throwError EmptyData
+    
+    let parsedLines = map processLine dataLines
+    
+    -- makes a list of Row instead a lst of Either Error Row
+    case sequence parsedLines of
+        Left err -> throwError (ParseError err)
+        Right rows -> do
+            -- filters out rows with the given control genes (ex: B2M)
+            let validRows = filter (\r -> not (primer r `elem` controlGenes) && primer r /= "") rows
+            
+            liftIO $ putStrLn $ "\n >> Successfully parsed " ++ show (length validRows) ++ " target rows."
+            return validRows
+
+
+
+
+
+

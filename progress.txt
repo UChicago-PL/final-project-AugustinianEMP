@@ -1,5 +1,24 @@
-Milestone Achievements
+Major Milestone Achievements
+Data Modeling: Made custom ADTs that represent target values 
 
+Monadic Architecture: I'm using ExceptT monad transformer to handle laboratory data errors. 
+
+Custom Parsing: I'm using ReadP parser that isolates the four target columns 
 
 
 Problems & Solutions
+Windows carriage returns
+    
+    Problem: the txt files included hidden \r characters that prevented readMaybe 
+    from parsing CT values.
+
+    Solution: Added a preprocessing filter to the processLine function to strip all 
+    \r chars.
+
+ReadP Ambiguity
+
+    Problem: The readP_to_S fn was returning a list of multiple partial parses.
+
+    Solution: Changed the line processor to extract only the lines where the remainder 
+    of the string is empty.
+
