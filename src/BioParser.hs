@@ -2,10 +2,10 @@ module BioParser where
 
 import Control.Monad.Except
 import Text.ParserCombinators.ReadP
-import Data.Char()
 import Text.Read (readMaybe)
-import Control.Monad (when)
+import Control.Monad (void, when)
 import Control.Monad.IO.Class (liftIO)
+
 
 -- this is where I define ADTs matching the variables within the given txt file
 
@@ -39,11 +39,8 @@ data LabError
 
 -- fn that helps skip metadata that comes with txt file
 skipMetadata :: ReadP ()
-skipMetadata = do
-    -- munch reads characters until it finds the str "Well"
-    _ <- munch (\_ -> True) 
-    _ <- string "Well"
-    return ()
+-- munch reads characters until it finds the str "Well"
+skipMetadata = void $ munch (\_ -> True) *> string "Well"
 
 -- ReadP logic
 parseCSVFields :: ReadP [String]
@@ -57,13 +54,14 @@ toLabValue str = case readMaybe str :: Maybe Double of
     Just n  -> Value n
     Nothing -> Empty
 
--- processes each row of the CSV and extracts the 4 target values
+-- Processes each row of the CSV and extracts the 4 target values
 processLine :: String -> Either String LabRow
 processLine rawLine = 
     let line = filter (/= '\r') rawLine
         
         parses = readP_to_S parseCSVFields line
 
+        -- using the Fokker trick
         fullParses = [fs | (fs, "") <- parses]
         
     in case fullParses of
@@ -71,23 +69,19 @@ processLine rawLine =
             -- check for validity of parsed txt
             if length fields >= 16 
             then Right $ LabRow 
-                (fields !! 3)                 -- Sample Name
-                (fields !! 4)                 -- Target Name
+                (fields !! 3)         -- Sample Name             
+                (fields !! 4)         -- Target Name        
                 (toLabValue (fields !! 11))   -- RQ val
                 (toLabValue (fields !! 15))   -- Ct Mean val
-                
-            -- returns a blank 
             else Right (LabRow "" "" Empty Empty)
             
         -- if all else fails
         [] -> Left $ "Could not parse line: " ++ take 20 line ++ "..."
 
-
 -- Define a list of primers to exclude from the final plot
 controlGenes :: [String]
 controlGenes = ["B2M"]
 
--- Completed Pipeline
 parseLabExport :: String -> ExceptT LabError IO [LabRow]
 parseLabExport rawCSV = do
     let allLines = lines rawCSV
@@ -107,8 +101,8 @@ parseLabExport rawCSV = do
             let validRows = filter (\r -> not (primer r `elem` controlGenes) && primer r /= "") rows
             
             liftIO $ putStrLn $ "\n >> Successfully parsed " ++ show (length validRows) ++ " target rows."
-            return validRows
-
+            
+            pure validRows
 
 
 
