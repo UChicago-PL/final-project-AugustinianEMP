@@ -78,7 +78,7 @@ processLine rawLine =
         -- if all else fails
         [] -> Left $ "Could not parse line: " ++ take 20 line ++ "..."
 
--- Define a list of primers to exclude from the final plot
+-- Define a list of primers to exclude from the final plot (aka control genes)
 controlGenes :: [String]
 controlGenes = ["B2M"]
 

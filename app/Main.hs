@@ -19,5 +19,5 @@ main = do
                 Left err -> putStrLn $ "\n ERROR: " ++ show err
                 Right rows -> do
                     putStrLn $ "\n SUCCESS: Extracted " ++ show (length rows) ++ " rows."
-                    mapM_ (print) (take 20 rows)
+                    mapM_ (print) (take 96 rows)
         _ -> putStrLn "\n Usage: cabal run bioflow -- <filename.csv>"

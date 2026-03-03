@@ -6,7 +6,7 @@ and to clarify on my realigned ideas, goals, and tools to use for my project.
 Concept and Objectives
 Based on the feedback to prioritize a single large project rather than a collection of 
 different small utilities, BioFlow will focus exclusively on building a monadic 
-post-processing pipeline for machine-generated laboratory data. 
+post-processing pipeline for machine-generated lab data. 
 The goal is to safely parse, validate, and aggregate experimental data      
 (such as CSV/Excel exports containing RQ, Primers, and CT values), replacing 
 manual spreadsheet manipulation with a type-safe functional approach. 

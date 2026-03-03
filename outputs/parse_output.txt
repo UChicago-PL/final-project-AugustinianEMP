@@ -1,0 +1,109 @@
+Build profile: -w ghc-9.6.7 -O1
+In order, the following will be built (use -v for more details):
+ - final-project-AugustinianEMP-0.1.0.0 (exe:bioflow) (file src/BioParser.hs changed)
+Preprocessing executable 'bioflow' for final-project-AugustinianEMP-0.1.0.0...
+Building executable 'bioflow' for final-project-AugustinianEMP-0.1.0.0...
+[1 of 2] Compiling BioParser        ( src/BioParser.hs, /Users/augustangulo/Functional_Programming/final-project-AugustinianEMP/dist-newstyle/build/x86_64-osx/ghc-9.6.7/final-project-AugustinianEMP-0.1.0.0/x/bioflow/build/bioflow/bioflow-tmp/BioParser.o ) [Source file changed]
+[3 of 3] Linking /Users/augustangulo/Functional_Programming/final-project-AugustinianEMP/dist-newstyle/build/x86_64-osx/ghc-9.6.7/final-project-AugustinianEMP-0.1.0.0/x/bioflow/build/bioflow/bioflow [Objects changed]
+
+ >> BioFlow: Loading 251106 MCF7 Y537S las ful e2.csv...
+
+ >> Successfully parsed 96 target rows.
+
+ SUCCESS: Extracted 96 rows.
+LabRow {treatment = "Veh", primer = "PGR", rq = Value 1.0, ctMean = Value 37.053}
+LabRow {treatment = "Veh", primer = "PGR", rq = Value 1.0, ctMean = Value 37.053}
+LabRow {treatment = "Veh", primer = "PGR", rq = Value 1.0, ctMean = Value 37.053}
+LabRow {treatment = "E2", primer = "PGR", rq = Value 2.453, ctMean = Value 35.792}
+LabRow {treatment = "E2", primer = "PGR", rq = Value 2.453, ctMean = Value 35.792}
+LabRow {treatment = "E2", primer = "PGR", rq = Value 2.453, ctMean = Value 35.792}
+LabRow {treatment = "Ful", primer = "PGR", rq = Value 0.549, ctMean = Value 37.15}
+LabRow {treatment = "Ful", primer = "PGR", rq = Empty, ctMean = Value 37.15}
+LabRow {treatment = "Ful", primer = "PGR", rq = Value 0.549, ctMean = Value 37.15}
+LabRow {treatment = "Laso", primer = "PGR", rq = Empty, ctMean = Value 37.552}
+LabRow {treatment = "Laso", primer = "PGR", rq = Value 0.652, ctMean = Value 37.552}
+LabRow {treatment = "Laso", primer = "PGR", rq = Value 0.652, ctMean = Value 37.552}
+LabRow {treatment = "Veh", primer = "BCL2", rq = Value 1.0, ctMean = Value 29.159}
+LabRow {treatment = "Veh", primer = "BCL2", rq = Value 1.0, ctMean = Value 29.159}
+LabRow {treatment = "Veh", primer = "BCL2", rq = Value 1.0, ctMean = Value 29.159}
+LabRow {treatment = "E2", primer = "BCL2", rq = Value 0.964, ctMean = Value 29.076}
+LabRow {treatment = "E2", primer = "BCL2", rq = Value 0.964, ctMean = Value 29.076}
+LabRow {treatment = "E2", primer = "BCL2", rq = Value 0.964, ctMean = Value 29.076}
+LabRow {treatment = "Ful", primer = "BCL2", rq = Value 0.782, ctMean = Value 28.792}
+LabRow {treatment = "Ful", primer = "BCL2", rq = Value 0.782, ctMean = Value 28.792}
+LabRow {treatment = "Ful", primer = "BCL2", rq = Value 0.782, ctMean = Value 28.792}
+LabRow {treatment = "Laso", primer = "BCL2", rq = Value 1.152, ctMean = Value 28.621}
+LabRow {treatment = "Laso", primer = "BCL2", rq = Value 1.152, ctMean = Value 28.621}
+LabRow {treatment = "Laso", primer = "BCL2", rq = Value 1.152, ctMean = Value 28.621}
+LabRow {treatment = "Veh", primer = "TGFB1", rq = Value 1.0, ctMean = Value 34.578}
+LabRow {treatment = "Veh", primer = "TGFB1", rq = Value 1.0, ctMean = Value 34.578}
+LabRow {treatment = "Veh", primer = "TGFB1", rq = Value 1.0, ctMean = Value 34.578}
+LabRow {treatment = "E2", primer = "TGFB1", rq = Value 0.935, ctMean = Value 34.788}
+LabRow {treatment = "E2", primer = "TGFB1", rq = Value 0.935, ctMean = Value 34.788}
+LabRow {treatment = "E2", primer = "TGFB1", rq = Value 0.935, ctMean = Value 34.788}
+LabRow {treatment = "Ful", primer = "TGFB1", rq = Value 0.776, ctMean = Value 34.281}
+LabRow {treatment = "Ful", primer = "TGFB1", rq = Value 0.776, ctMean = Value 34.281}
+LabRow {treatment = "Ful", primer = "TGFB1", rq = Value 0.776, ctMean = Value 34.281}
+LabRow {treatment = "Laso", primer = "TGFB1", rq = Value 0.764, ctMean = Value 34.829}
+LabRow {treatment = "Laso", primer = "TGFB1", rq = Value 0.764, ctMean = Value 34.829}
+LabRow {treatment = "Laso", primer = "TGFB1", rq = Value 0.764, ctMean = Value 34.829}
+LabRow {treatment = "Veh", primer = "BIK", rq = Value 1.0, ctMean = Value 36.166}
+LabRow {treatment = "Veh", primer = "BIK", rq = Value 1.0, ctMean = Value 36.166}
+LabRow {treatment = "Veh", primer = "BIK", rq = Value 1.0, ctMean = Value 36.166}
+LabRow {treatment = "E2", primer = "BIK", rq = Value 1.326, ctMean = Value 35.71}
+LabRow {treatment = "E2", primer = "BIK", rq = Value 1.326, ctMean = Value 35.71}
+LabRow {treatment = "E2", primer = "BIK", rq = Value 1.326, ctMean = Value 35.71}
+LabRow {treatment = "Ful", primer = "BIK", rq = Value 1.093, ctMean = Value 35.269}
+LabRow {treatment = "Ful", primer = "BIK", rq = Value 1.093, ctMean = Value 35.269}
+LabRow {treatment = "Ful", primer = "BIK", rq = Value 1.093, ctMean = Value 35.269}
+LabRow {treatment = "Laso", primer = "BIK", rq = Value 1.488, ctMean = Value 35.481}
+LabRow {treatment = "Laso", primer = "BIK", rq = Value 1.488, ctMean = Value 35.481}
+LabRow {treatment = "Laso", primer = "BIK", rq = Value 1.488, ctMean = Value 35.481}
+LabRow {treatment = "Veh", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CCND2", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Laso", primer = "CCND2", rq = Empty, ctMean = Value 37.436}
+LabRow {treatment = "Laso", primer = "CCND2", rq = Empty, ctMean = Value 37.436}
+LabRow {treatment = "Laso", primer = "CCND2", rq = Empty, ctMean = Value 37.436}
+LabRow {treatment = "Veh", primer = "BAX", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "BAX", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "BAX", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "BAX", rq = Empty, ctMean = Value 37.444}
+LabRow {treatment = "E2", primer = "BAX", rq = Empty, ctMean = Value 37.444}
+LabRow {treatment = "E2", primer = "BAX", rq = Empty, ctMean = Value 37.444}
+LabRow {treatment = "Ful", primer = "BAX", rq = Empty, ctMean = Value 38.127}
+LabRow {treatment = "Ful", primer = "BAX", rq = Empty, ctMean = Value 38.127}
+LabRow {treatment = "Ful", primer = "BAX", rq = Empty, ctMean = Value 38.127}
+LabRow {treatment = "Laso", primer = "BAX", rq = Empty, ctMean = Value 37.343}
+LabRow {treatment = "Laso", primer = "BAX", rq = Empty, ctMean = Value 37.343}
+LabRow {treatment = "Laso", primer = "BAX", rq = Empty, ctMean = Value 37.343}
+LabRow {treatment = "Veh", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Laso", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Laso", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Laso", primer = "CCNE1", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Veh", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "E2", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Ful", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Laso", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Laso", primer = "CDFN2A", rq = Empty, ctMean = Empty}
+LabRow {treatment = "Laso", primer = "CDFN2A", rq = Empty, ctMean = Empty}
