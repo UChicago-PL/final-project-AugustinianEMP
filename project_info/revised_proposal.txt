@@ -1,0 +1,36 @@
+Project Revised Proposal: BioFlow - A Lab Automation and Analysis Suite
+
+I have made this in response to the feedback I got from my original proposal 
+and to clarify on my realigned ideas, goals, and tools to use for my project. 
+
+Concept and Objectives
+Based on the feedback to prioritize a single large project rather than a collection of 
+different small utilities, BioFlow will focus exclusively on building a monadic 
+post-processing pipeline for machine-generated lab data. 
+The goal is to safely parse, validate, and aggregate experimental data      
+(such as CSV/Excel exports containing RQ, Primers, and CT values), replacing 
+manual spreadsheet manipulation with a type-safe functional approach. 
+
+The spatial plate layout engine is now treated as a strecth goal and will 
+be simplified using standard data structures like Data.Map if implemented.
+
+Based on this here are my revise milestones for my project...
+Project Milestones
+
+Easy: CSV Parser Skeleton
+
+- Implement a custom parser using the ReadP library to read and extract numerical data 
+(ex: floats representing CT values) from raw machine-exported excel files.
+- Define ADTs to represent the parsed biological entities and well readouts.
+
+Medium: Monadic Error Context
+
+- Wrap the parsing and evaluation logic within mtl's ExceptT monad transformer.
+- Programmatically flag and handle specific biological edge cases, such as CT values 
+that fall outside a valid threshold or undefined/missing RT values, preventing silent 
+failures in the data pipeline.
+
+Challenge: Data Aggregation & Plotting
+
+- Utilize the Haskell Chart library to automatically generate and export bar plots 
+(ex: Treatment vs. RQ value) to visualize the final results.

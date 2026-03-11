@@ -1,0 +1,59 @@
+BioFlow - A Lab Automation and Analysis Suite
+
+Author: August Angulo
+
+Context: Cancer Biology Research Lab
+
+Overview
+
+BioFlow is designed to automate manual Excel analysis of qPCR data with a type-safe, 
+automated pipeline. The project focuses on a post-processing engine that parses 
+CSV files with qPCR results, validates biological thresholds (via CT Mean values), 
+aggregates triplicate replicates, and generates bar plots (RQ value vs. Treatments)
+for each valid primer tested.
+
+Code Organization
+The project is organized into three primary modules:
+
+src/BioParser.hs: 
+    * Contains custom ADTs (LabValue and LabRow) to model the physical state of 
+    qPCR wells.
+
+    * Implements a custom ReadP parser using Applicative combinators.
+    (isolates data from file's metadata)
+
+    * Runs in an ExceptT LabError IO stack to provide a monadic error context.
+
+    * Implemented data aggregation that involved clumping raw rows by their Primer 
+    and Treatment (via use of Data.List.sortBy and Data.List.groupBy) and a filtering 
+    mechanism (getValues) that extracts only Value Double constructors (at least one 
+    valid data point, RQ, needs to exist).
+
+src/Plotter.hs: 
+    * Utilizes the Graphics.Rendering.Chart library to generate bar plots.
+
+    * The plotAllPrimers fn uses a secondary groupBy to split the entire dataset 
+    into individual primers (ex: PGR, BIK, BCL2).
+
+    * Employs custom sorting logic (Data.Ord.comparing) to implement scientific 
+    standards such as placing the "Veh" treatment at the far left of the X-axis.
+
+    * Added functionality where subdirectories are created for each file 
+    (allows for an easier and more organized way to look through your data across 
+    different time points)
+
+app/Main.hs: 
+    * Coordinates the pipeline: readFile -> parse -> aggregate -> plot.
+
+    * Provides a "Data Quality Report" to the terminal, flagging samples with 
+    high CT means (> 33).
+
+
+How to Interact
+    1. Ensure cabal and cairo system libraries are installed.
+
+    2. Run the suite via: cabal run bioflow -- data/"your_data.csv".
+    (I have provided a set of .csv files within my repo under "data" to try out)
+
+    3. View the terminal for the Data Quality Report and find the PNG outputs in 
+    the plots/ directory.

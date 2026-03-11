@@ -1,0 +1,2 @@
+
+ Incorrect entry. Usage: cabal run bioflow -- data/<filename.csv>

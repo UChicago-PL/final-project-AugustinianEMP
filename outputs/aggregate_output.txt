@@ -1,0 +1,27 @@
+
+ >> BioFlow: Loading 251106 MCF7 Y537S las ful e2.csv...
+
+ >> Successfully parsed 96 target rows.
+
+ >> Aggregating replicates...
+ >> Aggregation complete! 16 valid groups formed.
+
+ SUCCESS: Pipeline generated 16 data points.
+
+--- Data Quality Report ---
+Clean: E2 / BCL2 (CT: 29.076)
+Clean: Ful / BCL2 (CT: 28.792)
+Clean: Laso / BCL2 (CT: 28.621)
+Clean: Veh / BCL2 (CT: 29.159)
+WARNING - High CT: E2 / BIK (CT: 35.71)
+WARNING - High CT: Ful / BIK (CT: 35.269)
+WARNING - High CT: Laso / BIK (CT: 35.481)
+WARNING - High CT: Veh / BIK (CT: 36.166)
+WARNING - High CT: E2 / PGR (CT: 35.792)
+WARNING - High CT: Ful / PGR (CT: 37.15)
+WARNING - High CT: Laso / PGR (CT: 37.552)
+WARNING - High CT: Veh / PGR (CT: 37.053)
+WARNING - High CT: E2 / TGFB1 (CT: 34.788)
+WARNING - High CT: Ful / TGFB1 (CT: 34.281)
+WARNING - High CT: Laso / TGFB1 (CT: 34.829)
+WARNING - High CT: Veh / TGFB1 (CT: 34.578)

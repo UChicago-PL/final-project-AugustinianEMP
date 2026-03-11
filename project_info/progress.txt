@@ -1,0 +1,71 @@
+Major Milestone Achievements
+Data Modeling: Made custom ADTs that represent target values 
+
+Monadic Architecture: I'm using ExceptT monad transformer to handle laboratory data errors. 
+
+Custom Parsing: I'm using ReadP parser that isolates the four target columns 
+
+Data Aggregation: Grouped together my triplicate replicates by using sortBy and groupBy. 
+I calculated the avg RQ values for each given primer even if some replicates are missing 
+while keeping the CT Mean values for quality reporting.
+
+Plotting mechanism: I made Plotter.hs to plot the RQ bar plots of each
+treatment for each primer tested with valid results. 
+While implementing it, there were some side quests I ran into such as custom 
+sorting logic using Data.Ord.comparing, or the creation of a plots/ subdirectory
+using System.Directory library, etc. 
+
+Ambiguity Filtering: I finalized a singleton check in the processLine function 
+to mathematically ensure the parser only accepts unambiguous results.
+
+
+Problems & Solutions
+Windows carriage returns
+    
+    Problem: the txt files included hidden \r characters that prevented readMaybe 
+    from parsing CT values.
+
+    Solution: Added a preprocessing filter to the processLine function to strip all 
+    \r chars.
+
+ReadP Ambiguity
+
+    Problem: The readP_to_S fn was returning a list of multiple partial parses.
+
+    Solution: Changed the line processor to extract only the lines where the remainder 
+    of the string is empty.
+
+Monadic Sequencing
+
+    Problem: Not really a problem but what was challenging was turning a list of 
+    individual results into a single list within the error context.
+
+    Solution: I used the sequence function to transform [Either String LabRow] into 
+    Either String [LabRow], which allowed the ExceptT pipeline to end if any row 
+    parsing failed.
+
+The singleton result requirement
+
+    Problem: TA noted that my processLine fn was grabbing the first result of a 
+    parse rather than ensuring the parse was unambiguous.
+
+    Solution: I redid processLine to use a singleton list pattern [fields] so that
+    the parser fails if it finds more than one valid way to interpret a line.
+
+X-Axis Type Constraints
+
+    Problem: A No instance for PlotValue [Char] error popped up when I was trying 
+    to plot Treatment names (Strings) directly on the X-axis.
+
+    Solution: I learned that the X-axis requires numbers for spacing. I solved this 
+    by using the addIndexes utility to map RQs to internal integers while using 
+    autoIndexAxis to overlay the categorical labels on top. 
+
+Invisibly Discarded State Results
+
+    Problem: The compiler issued "discarded result" warnings when I used lens setters 
+    like layout_title .= ... inside the chart-building do block.
+
+    Solution: I applied the void function to these setters which tells the compiler 
+    that I am intentionally ignoring the return values of these stateful operations 
+    to maintain a clean terminal output.

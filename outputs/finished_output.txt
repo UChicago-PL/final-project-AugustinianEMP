@@ -1,0 +1,30 @@
+
+ >> BioFlow: Loading 20260129 T47D Y537S 24h laso ful e2.csv...
+
+ SUCCESS: BioFlow has generated all your qPCR plots.
+
+--- Data Quality Report ---
+Good Data: E2 / BCL2 (CT: 25.98)
+Good Data: Ful / BCL2 (CT: 27.608)
+Good Data: Laso / BCL2 (CT: 26.69)
+Good Data: Veh / BCL2 (CT: 25.51)
+Good Data: E2 / BIK (CT: 30.239)
+Good Data: Ful / BIK (CT: 29.473)
+Good Data: Laso / BIK (CT: 28.929)
+Good Data: Veh / BIK (CT: 29.768)
+Good Data: E2 / FOXM1 (CT: 23.141)
+Good Data: Ful / FOXM1 (CT: 25.365)
+Good Data: Laso / FOXM1 (CT: 24.056)
+Good Data: Veh / FOXM1 (CT: 31.65)
+Good Data: E2 / MYC (CT: 26.811)
+Good Data: Ful / MYC (CT: 28.893)
+Good Data: Laso / MYC (CT: 27.921)
+Good Data: Veh / MYC (CT: 28.688)
+Good Data: E2 / PDZK1 (CT: 24.52)
+Good Data: Ful / PDZK1 (CT: 30.598)
+Good Data: Laso / PDZK1 (CT: 26.308)
+Good Data: Veh / PDZK1 (CT: 29.126)
+Good Data: E2 / ccND1 (CT: 27.394)
+Good Data: Ful / ccND1 (CT: 27.275)
+Good Data: Laso / ccND1 (CT: 28.099)
+Good Data: Veh / ccND1 (CT: 27.145)
